@@ -21,6 +21,9 @@ import { BlogDetailsComponent } from './core/components/blog-details/blog-detail
 import { TermsOfConditionComponent } from './core/components/terms-of-condition/terms-of-condition.component';
 import { CommiteesComponent } from './core/components/commitees/commitees.component';
 import { FormsReportsComponent } from './core/components/forms-reports/forms-reports.component';
+import { StaffDetailsComponent } from './core/components/staff-details/staff-details.component';
+import { AcademicCalendarComponent } from './core/components/academic-calendar/academic-calendar.component';
+import { ScholarshipComponent } from './core/components/scholarship/scholarship.component';
 
 const routes: Routes = [
   {
@@ -42,7 +45,10 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'terms', component: TermsOfConditionComponent },
       { path: 'commitees', component: CommiteesComponent },
+      { path: 'staff-details', component: StaffDetailsComponent },
+      { path: 'academin-calender', component: AcademicCalendarComponent },
       { path: 'links/:id', component: FormsReportsComponent },
+      { path: 'scholarship', component: ScholarshipComponent },
 
 
       
