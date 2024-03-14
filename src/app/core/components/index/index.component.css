@@ -1,0 +1,8 @@
+.bg-half-100 {
+    padding: 70px 0;
+    background-size: cover;
+    -ms-flex-item-align: center;
+    align-self: center;
+    position: relative;
+    background-position: center center;
+}

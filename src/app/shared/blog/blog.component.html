@@ -1,0 +1,24 @@
+<div class="row">
+    @for(b of blogsData;track $index){
+    <div class="col-lg-4 col-md-6 mb-4 pb-2">
+        <div class="card blog rounded border-0 shadow overflow-hidden">
+            <div class="position-relative">
+                <img src="http://localhost:9200{{b.blogImage}}" class="card-img-top" alt="...">
+                <div class="overlay rounded-top bg-dark"></div>
+            </div>
+            <div class="card-body content">
+                <h5><a routerLink="" (click)="continueBlog(b.id)" class="card-title title text-dark">{{b.blogTitle}}</a>
+                </h5>
+                <div class="post-meta d-flex justify-content-between mt-3">
+                    <a routerLink="" (click)="continueBlog(b.id)" class="text-muted readmore">Read More <i
+                            class="uil uil-angle-right-b align-middle"></i></a>
+                </div>
+            </div>
+            <div class="author">
+                <small class="text-light user d-block"><i class="uil uil-user"></i> {{b.authorName}}</small>
+                <small class="text-light date"><i class="uil uil-calendar-alt"></i> {{b.blogDate|date}}</small>
+            </div>
+        </div>
+    </div>
+    }
+</div>

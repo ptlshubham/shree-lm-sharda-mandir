@@ -1,0 +1,286 @@
+<!-- TAGLINE START-->
+@if(sliderTopbar == true){
+<div class="tagline bg-dark">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="text-slider">
+          <ul class="list-inline mb-0 move-text">
+            <li class="list-inline-item px-2 mb-0"><b>EOG</b> $ 55.88 <span class="text-success">+$ 4.62 ( +9.01%
+                )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>CHKP</b> $ 120.03 <span class="text-danger">-$ 14.07 ( -10.49%
+                )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>FANG</b> $ 63.58 <span class="text-success">+$ 5.17 ( +8.84%
+                )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>M</b> $ 14.75 <span class="text-success">+$ 1.05 ( +7.66% )</span>
+            </li>
+            <li class="list-inline-item px-2 mb-0"><b>PKI</b> $ 139.72 <span class="text-danger">-$ 11.41 ( -7.55%
+                )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>ABMD</b> $ 326.23 <span class="text-danger">-$ 21.61 ( -6.21%
+                )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>BITCOIN</b> $ 37,471.47 <span class="text-danger">+$ 492.60 (
+                +1.33% )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>XRP</b> <span> $ 0.39</span><span class="text-muted"> UNCH</span>
+            </li>
+            <li class="list-inline-item px-2 mb-0"><b>LITECOIN</b> <span> $ 148.67</span><span class="text-danger">-$
+                5.58 ( -3.62% )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>BITCOIN CASH</b> <span> $ 427.37</span><span
+                class="text-danger">-$ 15.98 ( -3.60% )</span></li>
+            <li class="list-inline-item px-2 mb-0"><b>ETHEREUM</b> $ 1,647.87 <span class="text-danger">+$ 14.51 (
+                +0.89% )</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}
+<!-- TAGLINE END-->
+
+<!-- Navbar STart -->
+<header id="topnav" class="defaultscroll sticky" (window:scroll)="windowScroll()" [class]="navClass"
+  [ngClass]="{'tagline-height': sliderTopbar == true}">
+  <div class="container">
+    <!-- Logo container-->
+    <div>
+      @if(navClass !== 'nav-light'){
+      <a class="logo" routerLink="/index">
+        <img src="assets/images/logo-dark.png" class="l-dark logo-light-mode" height="60" alt="">
+        <img src="assets/images/logo-light.png" class="logo-dark-mode" height="60" alt="">
+      </a>
+      }
+      <div class="menu-extras">
+        <div class="menu-item">
+          <!-- Mobile menu toggle-->
+          <a class="navbar-toggle" id="isToggle" (click)="toggleMenu()" [ngClass]="{'open': isCondensed === true}">
+            <div class="lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </a>
+          <!-- End mobile menu toggle-->
+        </div>
+      </div>
+      @if(buttonList == true){
+      <ul class="buy-button list-inline mb-0">
+        <li class="list-inline-item mb-0 ms-1">
+          <div class="dropdown">
+            <button type="button" class="btn btn-link text-decoration-none dropdown-toggle p-0 pe-2"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="uil uil-search text-muted"></i>
+            </button>
+            <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 py-0"
+              style="width: 300px;">
+              <form>
+                <input type="text" id="text" name="name" class="form-control border bg-white" placeholder="Search...">
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-facebook-f icons"></i></a>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-github icons"></i></a>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-twitter icons"></i></a>
+        </li>
+        <li class="list-inline-item mb-0 ms-1">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-linkedin-alt icons"></i></a>
+        </li>
+      </ul>
+      }
+
+
+      @if(isdeveloper == true){
+      <ul class="buy-button list-inline mb-0">
+        <li class="list-inline-item mb-0">
+          <div class="dropdown">
+            <button type="button" class="btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              <i class="uil uil-search text-dark fs-5 align-middle pe-2"></i>
+            </button>
+            <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 py-0"
+              style="width: 300px;">
+              <form>
+                <input type="text" id="text2" name="name" class="form-control border bg-white" placeholder="Search...">
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="list-inline-item mb-0 pe-2">
+          <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight" (click)="openright(content)">
+            <div class="btn btn-icon btn-soft-primary" id="settingbtn"><i-feather name="settings"
+                class="fea icon-sm"></i-feather></div>
+          </a>
+        </li>
+        <li class="list-inline-item mb-0">
+          <a href="javascript:void(0)" class="btn btn-icon btn-primary"><i class="uil uil-github icons"></i></a>
+        </li>
+      </ul>
+      }
+
+      @if(navClass === 'nav-light'){
+      <a class="logo" routerLink="/index">
+        <img src="assets/images/logo-dark.png" class="l-dark" height="60" alt="">
+        <img src="assets/images/logo-light.png" class="l-light" height="60" alt="">
+      </a>
+      }
+    </div>
+    <!--Login button Start-->
+
+    @if(Settingicon == true && navClass === 'nav-light'){
+    <ul class="buy-button list-inline mb-0">
+      <li class="list-inline-item mb-0 login-btn-primary">
+        <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight" (click)="openright(content)">
+          <div class="btn btn-icon btn-pills btn-soft-primary" id="settingbtn"><i-feather name="settings"
+              class="fea icon-sm"></i-feather></div>
+        </a>
+      </li>
+
+      <li class="list-inline-item mb-0 login-btn-light">
+        <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight" (click)="openright(content)">
+          <div class="btn btn-icon btn-pills btn-light" id="settingbtn"><i-feather name="info"
+              class="fea icon-sm"></i-feather></div>
+        </a>
+      </li>
+    </ul>
+    }
+
+
+    @if(Settingicon == true && navClass !== 'nav-light'){
+    <ul class="buy-button list-inline mb-0">
+      <li class="list-inline-item mb-0">
+        <a href="javascript:void(0)" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight" (click)="openright(content)">
+          <div class="btn btn-icon btn-pills btn-soft-primary" id="settingbtn"><i-feather name="info"
+              class="fea icon-sm"></i-feather></div>
+        </a>
+      </li>
+    </ul>
+    }
+
+    @if(Menuoption == 'center'){
+    <div id="navigation">
+      <!-- Navigation Menu-->
+      <ul class="navigation-menu nav-right" [class]="navClass">
+        <li><a routerLink="/" class="nav-link-ref">Home</a></li>
+        <li class="has-submenu">
+          <a href="javascript:void(0)" (click)="onMenuClick($event)">About Us</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a routerLink="/about-us" class="nav-link-ref"> Our History</a> </li>
+            <li><a routerLink="/management" class="nav-link-ref"> Management </a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">Academic</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a routerLink="/academic" class="nav-link-ref">Gujrati Medium </a></li>
+            <li><a routerLink="/academic" class="nav-link-ref">English Medium</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/alumni" class="nav-link-ref">Alumni</a></li>
+        <li><a routerLink="/gallery" class="nav-link-ref">Gallery</a></li>
+        <li><a routerLink="/contact-us" class="nav-link-ref">Contact Us</a></li>
+        <li class="has-submenu">
+          <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">More</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a routerLink="/facilities" class="nav-link-ref">Facilities</a> </li>
+            <li><a routerLink="/blog" class="nav-link-ref">Blogs</a></li>
+            <li><a routerLink="/news" class="nav-link-ref">News</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    }
+    <!--end navigation-->
+  </div>
+  <!--end container-->
+</header>
+
+<!-- Offcanvas Start -->
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header p-4 border-bottom">
+    <h5 id="offcanvasRightLabel" class="mb-0">
+      <img src="assets/images/logo-dark.png" height="60" class="light-version" alt="">
+      <img src="assets/images/logo-light.png" height="60" class="dark-version" alt="">
+    </h5>
+    <button type="button" class="btn-close d-flex align-items-center text-dark" data-bs-dismiss="offcanvas"
+      aria-label="Close" (click)="offcanvas.dismiss('Cross click')"><i class="uil uil-times fs-4"></i></button>
+  </div>
+  <div class="offcanvas-body p-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card border-0" style="z-index: 1">
+          <div class="card-body p-0">
+            <div class="row">
+              <div class="col-12 text-center">
+                <div class="text-center">
+                  <h5 class=" mt-1"> <span class="text-primary mt-1">“सा विद्या या विमुक्तये”</span></h5>
+                </div>
+                <p class="answer text-muted mb-0" style="text-align: justify;">इसका अर्थ है, विद्या वही है जो मुक्त करे.
+                  विद्या का मतलब है लोकोपयोगी सारा ज्ञान प्राप्त करना और
+                  मुक्ति से मतलब है इस जीवन में सब तरह की गुलामी से छुटकारा पाना. </p>
+              </div>
+              <hr class="mt-2">
+              <div class="col-12">
+                <div class="d-flex">
+                  <i class="mdi mdi-phone text-primary me-2 mt-0 sidebar-icons"></i>
+                  <div class="flex-1">
+                    <h5 class="mt-1"> <span class="text-primary">Contact</span></h5>
+                    <a href="tel:+91 98981 27888">
+                      <p class="answer text-muted mb-0">+91 9898127888</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <hr class="mt-2">
+              <div class="col-12">
+                <div class="d-flex">
+                  <i class="mdi mdi-email text-primary me-2 mt-0 sidebar-icons"></i>
+                  <div class="flex-1">
+                    <h5 class="mt-1"> <span class="text-primary">Email</span></h5>
+                    <a href="mailto:info@shardakedavanimandal.ac.in">
+                      <p class="answer text-muted mb-0">info&#64;shardakedavnimandal.ac.in</p>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <hr class="mt-2">
+              <div class="col-12">
+                <div class="d-flex">
+                  <i class="mdi mdi-google-maps text-primary me-2 mt-0 sidebar-icons"></i>
+                  <div class="flex-1">
+
+                    <h5 class="mt-1"> <span class="text-primary">Address</span></h5>
+                    <p class="answer text-muted mb-0">Shree L.M Sharda Mandir,<br> Ratnakar Mata
+                      Road,<br>Kapadwanj,<br>Kheda,Gujarat,387620</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas-footer p-4 border-top text-center">
+    <ul class="list-unstyled social-icon social mb-0 d-flex justify-content-center gap-1">
+      <li class="list-inline-item mb-0"><a href="https://www.facebook.com" target="_blank" class="rounded"><i
+            class="uil uil-facebook-f align-middle" title="facebook"></i></a></li>
+      <li class="list-inline-item mb-0"><a href="https://www.instagram.com" target="_blank" class="rounded"><i
+            class="uil uil-instagram align-middle" title="instagram"></i></a></li>
+      <li class="list-inline-item mb-0"><a href="https://twitter.com" target="_blank" class="rounded"><i
+            class="uil uil-twitter align-middle" title="twitter"></i></a></li>
+      <li class="list-inline-item mb-0"><a href="https://linkedin.com" target="_blank" class="rounded"><i
+            class="uil uil-linkedin-alt align-middle" title="linkedin-alt "></i></a></li>
+    </ul><!--end icon-->
+  </div>
+</ng-template>
+<!-- Offcanvas End -->

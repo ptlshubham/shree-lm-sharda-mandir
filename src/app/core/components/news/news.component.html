@@ -1,0 +1,96 @@
+<!-- Hero Start -->
+<section class="bg-half-170 bg-light d-table w-100" id="home">
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="pages-heading">
+                    <h4 class="title mb-0"> News & Events </h4>
+                </div>
+            </div> <!--end col-->
+        </div><!--end row-->
+
+        <div class="position-breadcrumb">
+            <nav aria-label="breadcrumb" class="d-inline-block">
+                <ul class="breadcrumb rounded shadow mb-0 px-4 py-2">
+                    <li class="breadcrumb-item"><a routerLink="/index">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">News & Events</li>
+                </ul>
+            </nav>
+        </div>
+    </div> <!--end container-->
+</section><!--end section-->
+<!-- Hero End -->
+
+<!-- Shape Start -->
+<div class="position-relative">
+    <div class="shape overflow-hidden text-color-white">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!--Shape End-->
+
+<section class="section mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="newsData.length==0">
+                <div class="card event-schedule event-primary rounded border">
+                    <div class="card-body text-center">
+                        <span class="text-center text-warning">News & Events not available.</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12" *ngIf="newsData.length > 0">
+                <div class="card event-schedule event-primary rounded border mt-2" *ngFor="let n of paginatedNewsData">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <ul class="date text-center me-3 mb-0 list-unstyled">
+                                <li class="day fw-bold">
+                                    <i-feather name="message-circle"></i-feather>
+                                </li>
+                            </ul>
+                            <div class="flex-1 content">
+                                <span class="text-dark">{{ n.date | date }}</span>
+                                <p class="text-muted location-time" [innerHTML]="n.message"></p>
+                                <a href="http://localhost:9200{{ n.files }}" target="_blank"
+                                    *ngIf="n.files !== 'null'" class="btn btn-soft-primary btn-sm">View <i
+                                        class="mdi mdi-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- PAGINATION START -->
+                <div class="col-12 mt-4">
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item" [class.disabled]="currentPage === 1">
+                            <a class="page-link" href="javascript:void(0)" aria-label="Previous"
+                                (click)="prevPage()">Prev</a>
+                        </li>
+                        <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+                            <a class="page-link" href="javascript:void(0)" (click)="changePage(page)">{{ page }}</a>
+                        </li>
+                        <li class="page-item" [class.disabled]="currentPage === totalPages">
+                            <a class="page-link" href="javascript:void(0)" aria-label="Next"
+                                (click)="nextPage()">Next</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+<div class="position-relative">
+    <div class="shape overflow-hidden text-footer">
+        <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- Back to top -->
+<a href="javascript: void(0);" class="btn btn-icon btn-primary back-to-top" id="back-to-top" [ngxScrollTo]="'#home'">
+    <i-feather name="arrow-up" class="icons"></i-feather>
+</a>
+<!-- Back to top -->
