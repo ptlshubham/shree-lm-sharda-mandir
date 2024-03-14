@@ -51,6 +51,7 @@ import { AlumniComponent } from './core/components/alumni/alumni.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogDetailsComponent } from './core/components/blog-details/blog-details.component';
 import { TermsOfConditionComponent } from './core/components/terms-of-condition/terms-of-condition.component';
+import { CommiteesComponent } from './core/components/commitees/commitees.component';
 
 
 @NgModule({
@@ -77,6 +78,7 @@ import { TermsOfConditionComponent } from './core/components/terms-of-condition/
     AlumniComponent,
     BlogDetailsComponent,
     TermsOfConditionComponent,
+    CommiteesComponent,
   ],
   imports: [
     BrowserModule,
