@@ -20,6 +20,7 @@ import { GalleryComponent } from './core/components/gallery/gallery.component';
 import { BlogDetailsComponent } from './core/components/blog-details/blog-details.component';
 import { TermsOfConditionComponent } from './core/components/terms-of-condition/terms-of-condition.component';
 import { CommiteesComponent } from './core/components/commitees/commitees.component';
+import { FormsReportsComponent } from './core/components/forms-reports/forms-reports.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,7 @@ const routes: Routes = [
       { path: 'gallery', component: GalleryComponent },
       { path: 'terms', component: TermsOfConditionComponent },
       { path: 'commitees', component: CommiteesComponent },
+      { path: 'links/:id', component: FormsReportsComponent },
 
 
       

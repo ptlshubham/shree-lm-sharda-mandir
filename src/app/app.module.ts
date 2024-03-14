@@ -52,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BlogDetailsComponent } from './core/components/blog-details/blog-details.component';
 import { TermsOfConditionComponent } from './core/components/terms-of-condition/terms-of-condition.component';
 import { CommiteesComponent } from './core/components/commitees/commitees.component';
+import { FormsReportsComponent } from './core/components/forms-reports/forms-reports.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { CommiteesComponent } from './core/components/commitees/commitees.compon
     BlogDetailsComponent,
     TermsOfConditionComponent,
     CommiteesComponent,
+    FormsReportsComponent,
   ],
   imports: [
     BrowserModule,
