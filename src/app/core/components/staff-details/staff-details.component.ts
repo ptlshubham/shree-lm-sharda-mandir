@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './staff-details.component.css'
 })
 export class StaffDetailsComponent {
-
+  sliderTopbar = false;
+  Menuoption = 'center';
+  Settingicon = true;
 }
