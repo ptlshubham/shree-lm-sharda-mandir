@@ -4,7 +4,7 @@
         <div class="row mt-5 justify-content-center">
             <div class="col-lg-12 text-center">
                 <div class="pages-heading">
-                    <h4 class="title mb-0">Commitees </h4>
+                    <h4 class="title mb-0">Committee</h4>
                 </div>
             </div> <!--end col-->
         </div><!--end row-->
@@ -13,7 +13,7 @@
             <nav aria-label="breadcrumb" class="d-inline-block">
                 <ul class="breadcrumb rounded shadow mb-0 px-4 py-2">
                     <li class="breadcrumb-item"><a routerLink="/index">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Commitees</li>
+                    <li class="breadcrumb-item active" aria-current="page">Committee</li>
                 </ul>
             </nav>
         </div>
@@ -46,20 +46,20 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
-                <div class="card event-schedule event-primary rounded border" *ngIf="mainData.length==0">
+                <div class="card event-schedule event-primary rounded border" *ngIf="commiData.length==0">
                     <div class="card-body text-center">
-                        <span class="text-center text-warning">Facilities & Infrastructure not available.</span>
+                        <span class="text-center text-warning">Committee is not available.</span>
                     </div>
                 </div>
-                <div class="card section-title p-4 shadow rounded border-0" *ngIf="mainData.length>0">
+                <div class="card section-title p-4 shadow rounded border-0" *ngIf="commiData.length>0">
                     <div class="accordion mt-2" id=" generalquestion">
-                        <div class="accordion-item rounded mt-2" *ngFor="let r of paginatedMainData; let i=index">
+                        <div class="accordion-item rounded mt-2" *ngFor="let r of commiData; let i=index">
                             <h2 class="accordion-header" [id]="'heading' + i">
                                 <button class="accordion-button border-0 bg-light" type="button"
                                     data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
                                     [attr.aria-expanded]="currentCollapsedIndex === i ? 'true' : (i === 0 ? 'true' : 'false')"
                                     [attr.aria-controls]="'collapse' + i" (click)="toggleCollapse(i)">
-                                    {{r.infraTitle}}
+                                    {{r.commTitle}}
                                 </button>
                             </h2>
                             <div [id]="'collapse' + i" class="accordion-collapse border-0 collapse"
@@ -74,7 +74,7 @@
                                         </ng-template>
                                     </ngb-carousel>
                                 </div>
-                                <div class="accordion-body text-muted" [innerHTML]="r.infraDetails">
+                                <div class="accordion-body text-muted" [innerHTML]="r.commDetails">
                                 </div>
                             </div>
                         </div>

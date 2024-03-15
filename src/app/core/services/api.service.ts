@@ -72,6 +72,8 @@ export class ApiService {
   public static saveCounselingDetailsURL: string = ApiService.HOST_URL + '/admin/SaveCounselingDetails'
   public static getOthersByIdDetailsURL: string = ApiService.HOST_URL + '/admin/GetOthersByIdDetails/';
   public static getScholarshipDetailsURL: string = ApiService.HOST_URL + '/admin/GetScholarshipDetails/';
+  public static getCommitteeDetailsByIdURL: string = ApiService.HOST_URL + '/admin/GetCommitteeDetailsById/';
+  public static getCommitteeMultiImagesByIdURL: string = ApiService.HOST_URL + '/admin/GetCommitteeMultiImagesById/';
 
   public static saveGatePassUserListURL: string = ApiService.HOST_URL + '/admin/SaveGatePassUserList';
   public static getGatePassUserListURL: string = ApiService.HOST_URL + '/admin/GetGatePassUserList';

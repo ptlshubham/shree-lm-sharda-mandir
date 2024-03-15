@@ -124,4 +124,10 @@ export class HomeService {
     getScholarshipData(id: any) {
         return this.http.get(ApiService.getScholarshipDetailsURL + id);
     }
+    getCommeteeDetails(id: any) {
+        return this.http.get(ApiService.getCommitteeDetailsByIdURL + id);
+    }
+    getCommiteeMultiImageById(id: any) {
+        return this.http.get(ApiService.getCommitteeMultiImagesByIdURL + id);
+    }
 }

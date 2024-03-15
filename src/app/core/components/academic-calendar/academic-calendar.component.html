@@ -1,1 +1,108 @@
-<p>academic-calendar works!</p>
+<!-- Hero Start -->
+<section class="bg-half-170 bg-light d-table w-100" id="home">
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="pages-heading">
+                    <h4 class="title mb-0">Academic-Calendar</h4>
+                </div>
+            </div> <!--end col-->
+        </div><!--end row-->
+
+        <div class="position-breadcrumb">
+            <nav aria-label="breadcrumb" class="d-inline-block">
+                <ul class="breadcrumb rounded shadow mb-0 px-4 py-2">
+                    <li class="breadcrumb-item"><a routerLink="/index">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Academic-Calendar</li>
+                </ul>
+            </nav>
+        </div>
+    </div> <!--end container-->
+</section><!--end section-->
+<!-- Hero End -->
+<!-- Shape Start -->
+<div class="position-relative">
+    <div class="shape overflow-hidden text-color-white">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!--Shape End-->
+<!-- Start -->
+<section class="section mb-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 text-center">
+                <div class="section-title mb-4 pb-2">
+                    <h4 class="title mb-4">See everything about your <span class="text-primary">Landrick</span></h4>
+                    <p class="text-muted para-desc mx-auto mb-0">Start working with <span
+                            class="text-primary fw-bold">Landrick</span> that can provide everything you need to
+                        generate awareness,
+                        drive traffic, connect.</p>
+                </div>
+            </div>
+            <!--end col-->
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+                <div class="card event-schedule event-primary rounded border" *ngIf="academic.length==0">
+                    <div class="card-body text-center">
+                        <span class="text-center text-warning">Academic-Calendar is not available.</span>
+                    </div>
+                </div>
+                <div class="card section-title p-4 shadow rounded border-0" *ngIf="academic.length>0">
+                    <div class="accordion mt-2" id=" generalquestion">
+                        <div class="accordion-item rounded mt-2" *ngFor="let c of academic ;let i=index">
+                            <h2 class="accordion-header" [id]="'heading' + i">
+                                <button class="accordion-button border-0 bg-light" type="button"
+                                    data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i"
+                                    [attr.aria-expanded]="currentCollapsedIndex === i ? 'true' : (i === 0 ? 'true' : 'false')"
+                                    [attr.aria-controls]="'collapse' + i" (click)="toggleCollapse(i)">
+                                    {{c.title}}
+                                </button>
+                            </h2>
+                            <div [id]="'collapse' + i" class="accordion-collapse border-0 collapse"
+                                [ngClass]="{'show': currentCollapsedIndex === i}" [attr.aria-labelledby]="'heading' + i"
+                                data-bs-parent="#generalquestion">
+                                <div class="row text-center  mt-4">
+                                    <img src="http://localhost:9200{{c.image}}" alt="work-image">
+                                </div>
+                                <div class="accordion-body text-muted" [innerHTML]="c.details">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-4">
+                        <ul class="pagination justify-content-center mb-0">
+                            <li class="page-item" [class.disabled]="currentPage === 1">
+                                <a class="page-link" href="javascript:void(0)" aria-label="Previous"
+                                    (click)="prevPage()">Prev</a>
+                            </li>
+                            <li class="page-item" *ngFor="let page of pages" [class.active]="currentPage === page">
+                                <a class="page-link" href="javascript:void(0)" (click)="changePage(page)">{{ page }}</a>
+                            </li>
+                            <li class="page-item" [class.disabled]="currentPage === totalPages">
+                                <a class="page-link" href="javascript:void(0)" aria-label="Next"
+                                    (click)="nextPage()">Next</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="position-relative">
+    <div class="shape overflow-hidden text-footer">
+        <svg viewBox="0 0 2880 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M720 125L2160 0H2880V250H0V125H720Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+<!-- Back to top -->
+<a href="javascript: void(0);" class="btn btn-icon btn-primary back-to-top" id="back-to-top" [ngxScrollTo]="'#home'">
+    <i-feather name="arrow-up" class="icons"></i-feather>
+</a>
