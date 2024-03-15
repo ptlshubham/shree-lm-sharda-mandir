@@ -46,7 +46,7 @@ const routes: Routes = [
       { path: 'terms', component: TermsOfConditionComponent },
       { path: 'commitees', component: CommiteesComponent },
       { path: 'staff-details', component: StaffDetailsComponent },
-      { path: 'academin-calender', component: AcademicCalendarComponent },
+      { path: 'academic-calendar', component: AcademicCalendarComponent },
       { path: 'links/:id', component: FormsReportsComponent },
       { path: 'scholarship', component: ScholarshipComponent },
 

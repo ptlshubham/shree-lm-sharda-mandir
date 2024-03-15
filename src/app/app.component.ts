@@ -9,7 +9,7 @@ import { HomeService } from './core/services/home.services';
 })
 export class AppComponent {
   title = 'landrick-angular';
-  staticURL: any = 'www.shreeshardakedavanimandal.ac.in';
+  staticURL: any = 'www.lm.shreeshardakedavanimandal.ac.in';
   // staticURL: any = 'www.sanppgi.ac.in';
 
   constructor(

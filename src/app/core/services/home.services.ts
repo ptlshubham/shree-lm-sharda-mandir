@@ -121,4 +121,7 @@ export class HomeService {
     getothersDataById(institute_id: any) {
         return this.http.get(ApiService.getOthersByIdDetailsURL + institute_id);
     }
+    getScholarshipData(id: any) {
+        return this.http.get(ApiService.getScholarshipDetailsURL + id);
+    }
 }
