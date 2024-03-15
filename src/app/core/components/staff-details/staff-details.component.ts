@@ -14,7 +14,10 @@ export class StaffDetailsComponent implements OnInit {
   staffDataTable: any = [];
   departmentData: any = [];
   filterData: any = [];
-  selectedDepartment: any = '';
+
+  
+  currentPage: number = 1;
+  itemsPerPage: number = 12;
 
   constructor(
     private staffService: StaffService,
@@ -24,17 +27,11 @@ export class StaffDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.getStaffDetails();
     this.getDepartmentDetails();
-    this.selectedDepartment = 'Department';
   }
   getStaffDetails() {
-    this.filterData = [];
     this.staffService.getAllStaffDetailsData(localStorage.getItem('InstituteId')).subscribe((res: any) => {
       this.staffDataTable = res;
-      if (this.selectedDepartment == 'all') {
-        this.filterData = res;
-        debugger
-      }
-
+      this.filterData = res;
     })
   }
   getDepartmentDetails() {
@@ -43,8 +40,56 @@ export class StaffDetailsComponent implements OnInit {
       this.departmentData = res;
     })
   }
-  selectAll(val: any) {
-    this.selectedDepartment = val;
-    this.getStaffDetails();
+  onChange(value: string) {
+    this.filterData = [];
+    if (value === 'all') {
+      this.filterData = this.staffDataTable;
+    } else {
+      const selectedOption = this.departmentData.find(item => item.department === value);
+      if (selectedOption) {
+        this.staffDataTable.forEach((element: any) => {
+          if (selectedOption.id == element.department) {
+            this.filterData.push(element);
+          }
+        });
+      }
+    }
   }
+
+  get totalPages(): number {
+    return Math.ceil(this.filterData.length / this.itemsPerPage);
+  }
+
+  get startIndex(): number {
+    return (this.currentPage - 1) * this.itemsPerPage;
+  }
+
+  get endIndex(): number {
+    return Math.min(this.startIndex + this.itemsPerPage - 1, this.filterData.length - 1);
+  }
+
+  get paginatedMainData(): any[] {
+    return this.filterData.slice(this.startIndex, this.endIndex + 1);
+  }
+
+  get pages(): number[] {
+    return Array(this.totalPages).fill(0).map((x, i) => i + 1);
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  changePage(page: number) {
+    this.currentPage = page;
+  }
+
 }
