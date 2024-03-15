@@ -54,7 +54,7 @@ export class FormsReportsComponent implements OnInit {
         this.openForms = false;
         this.reportData = [];
         this.othersData.forEach((element: any) => {
-          if (element.purpose == 'reports') {
+          if (element.purpose == 'report') {
             this.reportData.push(element);
           }
         });
