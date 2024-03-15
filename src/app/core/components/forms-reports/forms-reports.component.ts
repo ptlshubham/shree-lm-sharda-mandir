@@ -1,59 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HomeService } from '../../services/home.services';
-interface feature {
-  icon: string;
-  title: string;
-};
-
 @Component({
   selector: 'app-forms-reports',
   templateUrl: './forms-reports.component.html',
   styleUrl: './forms-reports.component.css'
 })
-export class FormsReportsComponent {
+export class FormsReportsComponent implements OnInit {
   sliderTopbar = false;
   Menuoption = 'center';
   Settingicon = true;
-  featuresdata: feature[] = [
-    {
-      icon: "monitor",
-      title: "Fully Responsive"
-    },
-    {
-      icon: "heart",
-      title: "Browser Compatibility"
-    },
-    {
-      icon: "eye",
-      title: "Retina Ready"
-    },
-    {
-      icon: "bold",
-      title: "Based On Bootstrap 5"
-    },
-    {
-      icon: "feather",
-      title: "Feather Icons"
-    },
-    {
-      icon: "code",
-      title: "Built With SASS"
-    },
-    {
-      icon: "user-check",
-      title: "W3c Valid Code"
-    },
-    {
-      icon: "git-merge",
-      title: "Flaticon Icons"
-    },
-    {
-      icon: "settings",
-      title: "Easy to customize"
-    }
-  ];
   link: any = '';
+  othersData: any = [];
+  syllabusData: any = [];
+  reportData: any = [];
+  formsData: any = [];
+
+  openSyllabus: boolean = false;
+  openReport: boolean = false;
+  openForms: boolean = false;
 
   constructor(
     private homeService: HomeService,
@@ -62,7 +27,49 @@ export class FormsReportsComponent {
   ) {
     this.activatedRoute.params.subscribe(params => {
       this.link = params['id'];
-      // this.getFormsDetails();
+      debugger
+      this.getFormsDetails();
     });
+  }
+  ngOnInit(): void {
+  }
+  getFormsDetails() {
+    this.homeService.getothersDataById(localStorage.getItem('InstituteId')).subscribe((res: any) => {
+      this.othersData = res;
+
+      if (this.link == 'syllabus') {
+        this.openSyllabus = true;
+        this.openReport = false;
+        this.openForms = false;
+        this.syllabusData = [];
+        this.othersData.forEach((element: any) => {
+          if (element.purpose == 'syllabus') {
+            this.syllabusData.push(element);
+          }
+        });
+      }
+      else if (this.link == 'reports') {
+        this.openReport = true;
+        this.openSyllabus = false;
+        this.openForms = false;
+        this.reportData = [];
+        this.othersData.forEach((element: any) => {
+          if (element.purpose == 'reports') {
+            this.reportData.push(element);
+          }
+        });
+      }
+      else if (this.link == 'forms') {
+        this.openForms = true;
+        this.openReport = false;
+        this.openSyllabus = false;
+        this.formsData = [];
+        this.othersData.forEach((element: any) => {
+          if (element.purpose == 'forms') {
+            this.formsData.push(element);
+          }
+        });
+      }
+    })
   }
 }

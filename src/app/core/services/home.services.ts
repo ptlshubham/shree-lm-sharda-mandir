@@ -118,4 +118,7 @@ export class HomeService {
     uploadTax80Image(img: any): Observable<any> {
         return this.http.post<any>(ApiService.upload80GTaxImageURL, img);
     }
+    getothersDataById(institute_id: any) {
+        return this.http.get(ApiService.getOthersByIdDetailsURL + institute_id);
+    }
 }
