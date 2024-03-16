@@ -10,10 +10,11 @@ export class CommiteesComponent {
   sliderTopbar = false;
   Menuoption = 'center';
   Settingicon = true;
- 
-  commiData: any = [];
+
+  public commiData: any = [];
   multiImage: any = [];
   mainData: any = [];
+  currentCollapsedIndex: number = 0;
 
   constructor(
     private homeService: HomeService
@@ -23,37 +24,78 @@ export class CommiteesComponent {
     this.getCommeteeDataById();
   }
   getCommeteeDataById() {
-    this.homeService.getCommeteeDetails(localStorage.getItem('InstituteId')).subscribe(async (res: any) => {
+    this.homeService.getCommeteeDetails(localStorage.getItem('InstituteId')).subscribe((res: any) => {
       this.commiData = res;
       debugger
-      for(let i=0;i<this.commiData.length;i++){
+      for (let i = 0; i < this.commiData.length; i++) {
+        debugger
         if (this.commiData[i].id) {
-          await this.homeService.getCommiteeMultiImageById(this.commiData[i].id).toPromise().then((res: any) => {
-              this.multiImage = res;
-              this.mainData.push(
-                {
-                  id: this.commiData[i].id,
-                  institute_id: this.commiData[i].institute_id,
-                  commTitle: this.commiData[i].commTitle,
-                  commDetails: this.commiData[i].commDetails,
-                  commImage: this.commiData[i].commImage,
-                  createddate: this.commiData[i].createddate,
-                  updateddate: this.commiData[i].updateddate,
-                  multiImage: this.multiImage,
-                  index:i+1
-                });
-              this.multiImage.push(
-                {
-                  image: this.commiData[i].commImage
-                }
-              )
+          this.homeService.getCommiteeMultiImageById(this.commiData[i].id).subscribe((res: any) => {
+            this.multiImage = res;
+            debugger
+            this.mainData.push(
+              {
+                id: this.commiData[i].id,
+                institute_id: this.commiData[i].institute_id,
+                commTitle: this.commiData[i].commTitle,
+                commDetails: this.commiData[i].commDetails,
+                commImage: this.commiData[i].commImage,
+                createddate: this.commiData[i].createddate,
+                updateddate: this.commiData[i].updateddate,
+                multiImage: this.multiImage,
+                cols: false,
+                index: i + 1
+              });
+            this.multiImage.push(
+              {
+                image: this.commiData[i].commImage
+              }
+            )
           });
         }
       }
-      for (let i = 0; i < this.commiData.length; i++) {
-        this.commiData[i].cols = false;
-      }
-       
+
     })
   }
+  // getCommeteeDataById() {
+  //   this.homeService.getCommeteeDetails(localStorage.getItem('InstituteId')).subscribe(async (res: any) => {
+  //     this.commiData = res;
+  //     debugger
+  //     for (let i = 0; i < this.commiData.length; i++) {
+  //       debugger
+  //       if (this.commiData[i].id) {
+  //         await this.homeService.getCommiteeMultiImageById(this.commiData[i].id).toPromise().then((res: any) => {
+  //           this.multiImage = res;
+  //           this.mainData.push(
+  //             {
+  //               id: this.commiData[i].id,
+  //               institute_id: this.commiData[i].institute_id,
+  //               commTitle: this.commiData[i].commTitle,
+  //               commDetails: this.commiData[i].commDetails,
+  //               commImage: this.commiData[i].commImage,
+  //               createddate: this.commiData[i].createddate,
+  //               updateddate: this.commiData[i].updateddate,
+  //               multiImage: this.multiImage,
+  //               cols : false,
+  //               index: i + 1
+  //             });
+  //           this.multiImage.push(
+  //             {
+  //               image: this.commiData[i].commImage
+  //             }
+  //           )
+  //         });
+  //       }
+  //     }
+
+  //   })
+  // }
+  toggleCollapse(index: number) {
+    if (this.currentCollapsedIndex === index) {
+      this.currentCollapsedIndex = -1; // Collapse if already expanded
+    } else {
+      this.currentCollapsedIndex = index; // Expand if collapsed or another one is clicked
+    }
+  }
+
 }

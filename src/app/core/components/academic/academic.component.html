@@ -64,17 +64,17 @@
                     <div class="tab-pane fade show active" id="pills-buying" role="tabpanel"
                         aria-labelledby="pills-buying-tab">
                         <div class="row projects-wrapper">
-                            @for(data of worksData;track $index){
+                            @for(data of gujaratiMediumData;track $index){
                             <div class="col-md-6 col-12 mt-4 pt-2">
                                 <div class="card border-0 work-container work-classic">
                                     <div class="card-body p-0">
                                         <a routerLink="/portfolio-detail-one"><img src="{{data.image}}"
                                                 class="img-fluid rounded work-image" alt=""></a>
                                         <div class="content pt-3">
-                                            <h5 class="mb-0"><a routerLink="/portfolio-detail-one"
-                                                    class="text-dark title">{{data.name}}</a>
+                                            <h5 class="mb-0 text-center"><a routerLink="/portfolio-detail-one"
+                                                    class="text-primary title">{{data.name}}</a>
                                             </h5>
-                                            <h6 class="text-muted tag mb-0">{{data.designation}}</h6>
+                                            <h6 class="text-muted text-center tag mb-0">{{data.category}}</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -85,77 +85,23 @@
                     </div><!--end teb pane-->
 
                     <div class="tab-pane fade" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
-                        <div class="section-title" id="general">
-                            <h5>Accounts</h5>
-                        </div>
-
-                        <div class="accordion mt-4 pt-2" id="generalquestion">
-                            <div class="accordion-item rounded">
-                                <h2 class="accordion-header" id="headingfive">
-                                    <button class="accordion-button border-0 bg-light" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapsefive" aria-expanded="true"
-                                        aria-controls="collapsefive">
-                                        How does it work ?
-                                    </button>
-                                </h2>
-                                <div id="collapsefive" class="accordion-collapse border-0 collapse show"
-                                    aria-labelledby="headingfive" data-bs-parent="#generalquestion">
-                                    <div class="accordion-body text-muted">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form.
+                        <div class="row projects-wrapper">
+                            @for(data of englishMediumData;track $index){
+                            <div class="col-md-6 col-12 mt-4 pt-2">
+                                <div class="card border-0 work-container work-classic">
+                                    <div class="card-body p-0">
+                                        <a routerLink="/portfolio-detail-one"><img src="{{data.image}}"
+                                                class="img-fluid rounded work-image" alt=""></a>
+                                        <div class="content pt-3">
+                                            <h5 class="mb-0 text-center"><a routerLink="/portfolio-detail-one"
+                                                    class="text-primary title">{{data.name}}</a>
+                                            </h5>
+                                            <h6 class="text-muted text-center tag mb-0">{{data.category}}</h6>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="accordion-item rounded mt-2">
-                                <h2 class="accordion-header" id="headingsix">
-                                    <button class="accordion-button border-0 bg-light collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapsesix" aria-expanded="false"
-                                        aria-controls="collapsesix">
-                                        Do I need a designer to use Landrick ?
-                                    </button>
-                                </h2>
-                                <div id="collapsesix" class="accordion-collapse border-0 collapse"
-                                    aria-labelledby="headingsix" data-bs-parent="#generalquestion">
-                                    <div class="accordion-body text-muted">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item rounded mt-2">
-                                <h2 class="accordion-header" id="headingseven">
-                                    <button class="accordion-button border-0 bg-light collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseseven" aria-expanded="false"
-                                        aria-controls="collapseseven">
-                                        What do I need to do to start selling ?
-                                    </button>
-                                </h2>
-                                <div id="collapseseven" class="accordion-collapse border-0 collapse"
-                                    aria-labelledby="headingseven" data-bs-parent="#generalquestion">
-                                    <div class="accordion-body text-muted">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="accordion-item rounded mt-2">
-                                <h2 class="accordion-header" id="headingeight">
-                                    <button class="accordion-button border-0 bg-light collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseeight" aria-expanded="false"
-                                        aria-controls="collapseeight">
-                                        What happens when I receive an order ?
-                                    </button>
-                                </h2>
-                                <div id="collapseeight" class="accordion-collapse border-0 collapse"
-                                    aria-labelledby="headingeight" data-bs-parent="#generalquestion">
-                                    <div class="accordion-body text-muted">
-                                        There are many variations of passages of Lorem Ipsum available, but the majority
-                                        have suffered alteration in some form.
-                                    </div>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div><!--end teb pane-->
 
