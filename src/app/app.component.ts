@@ -8,9 +8,9 @@ import { HomeService } from './core/services/home.services';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'landrick-angular';
-  staticURL: any = 'www.lm.shreeshardakedavanimandal.ac.in';
-  // staticURL: any = 'www.sanppgi.ac.in';
+  title = 'Shree Sharda Kelavani Mandal';
+  // staticURL: any = 'www.lm.shreeshardakedavanimandal.ac.in';
+  staticURL: any = 'www.sanppgi.ac.in';
 
   constructor(
     private router: Router,
@@ -34,6 +34,7 @@ export class AppComponent {
   }
   getInstituteDetails() {
     this.homeService.getInstituteDetailsById(this.staticURL).subscribe((res: any) => {
+      debugger
       localStorage.setItem('InstituteId', res[0].id);
       localStorage.setItem('InstituteName', res[0].name);
       localStorage.setItem('InstituteURL', res[0].url);

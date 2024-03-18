@@ -3,7 +3,7 @@
     [wrap]="true" [interval]="4000" [pause]="'hover'" [noWrap]="false" [animation]="'slide'" [pauseOnFocus]="true">
     <ng-template ngbSlide *ngFor="let c of sliderImages;let i=index">
       <div class="picsum-img-wrapper">
-        <img src="http://localhost:9200{{c.image}}" class="d-block w-100" alt="...">
+        <img src="https://api.cesociety.in{{c.image}}" class="d-block w-100" alt="...">
       </div>
     </ng-template>
   </ngb-carousel>
@@ -226,7 +226,7 @@
                     </h5> -->
                   <span class="text-dark">{{n.date |date}}</span>
                   <p class="text-muted location-time" [innerHTML]="n.message"></p>
-                  <a href="http://localhost:9200{{n.files}}" target="_blank" *ngIf="n.files!='null'"
+                  <a href="https://api.cesociety.in{{n.files}}" target="_blank" *ngIf="n.files!='null'"
                     class="btn btn-soft-primary btn-sm">View <i class="mdi mdi-arrow-right"></i></a>
                 </div>
               </div>
