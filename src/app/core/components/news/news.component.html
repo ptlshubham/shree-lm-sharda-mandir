@@ -53,7 +53,7 @@
                             <div class="flex-1 content">
                                 <span class="text-dark">{{ n.date | date }}</span>
                                 <p class="text-muted location-time" [innerHTML]="n.message"></p>
-                                <a href="https://api.cesociety.in{{ n.files }}" target="_blank"
+                                <a href="http://localhost:9200{{ n.files }}" target="_blank"
                                     *ngIf="n.files !== 'null'" class="btn btn-soft-primary btn-sm">View <i
                                         class="mdi mdi-arrow-right"></i></a>
                             </div>

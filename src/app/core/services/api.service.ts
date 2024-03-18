@@ -6,8 +6,8 @@ declare var $: any;
   providedIn: 'root'
 })
 export class ApiService {
-  // public static HOST_URL: string = "http://localhost:9200";
-  public static HOST_URL: string = "https://api.cesociety.in";
+  public static HOST_URL: string = "http://localhost:9200";
+  // public static HOST_URL: string = "https://api.cesociety.in";
 
   toasts: any[] = [];
   constructor(

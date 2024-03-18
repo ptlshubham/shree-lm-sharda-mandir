@@ -9,8 +9,8 @@ import { HomeService } from './core/services/home.services';
 })
 export class AppComponent {
   title = 'Shree Sharda Kelavani Mandal';
-  // staticURL: any = 'www.lm.shreeshardakedavanimandal.ac.in';
-  staticURL: any = 'www.sanppgi.ac.in';
+  staticURL: any = 'www.lm.shreeshardakedavanimandal.ac.in';
+  // staticURL: any = 'www.sanppgi.ac.in';
 
   constructor(
     private router: Router,
