@@ -56,6 +56,9 @@ import { FormsReportsComponent } from './core/components/forms-reports/forms-rep
 import { ScholarshipComponent } from './core/components/scholarship/scholarship.component';
 import { AcademicCalendarComponent } from './core/components/academic-calendar/academic-calendar.component';
 import { StaffDetailsComponent } from './core/components/staff-details/staff-details.component';
+import { StudentListComponent } from './core/components/student-list/student-list.component';
+import { ResultComponent } from './core/components/result/result.component';
+import { PaperComponent } from './core/components/paper/paper.component';
 
 
 @NgModule({
@@ -87,6 +90,9 @@ import { StaffDetailsComponent } from './core/components/staff-details/staff-det
     ScholarshipComponent,
     AcademicCalendarComponent,
     StaffDetailsComponent,
+    StudentListComponent,
+    ResultComponent,
+    PaperComponent,
   ],
   imports: [
     BrowserModule,

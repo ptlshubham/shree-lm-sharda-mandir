@@ -24,6 +24,9 @@ import { FormsReportsComponent } from './core/components/forms-reports/forms-rep
 import { StaffDetailsComponent } from './core/components/staff-details/staff-details.component';
 import { AcademicCalendarComponent } from './core/components/academic-calendar/academic-calendar.component';
 import { ScholarshipComponent } from './core/components/scholarship/scholarship.component';
+import { StudentListComponent } from './core/components/student-list/student-list.component';
+import { ResultComponent } from './core/components/result/result.component';
+import { PaperComponent } from './core/components/paper/paper.component';
 
 const routes: Routes = [
   {
@@ -49,9 +52,9 @@ const routes: Routes = [
       { path: 'academic-calendar', component: AcademicCalendarComponent },
       { path: 'links/:id', component: FormsReportsComponent },
       { path: 'scholarship', component: ScholarshipComponent },
-
-
-      
+      { path: 'students-list', component: StudentListComponent },
+      { path: 'result', component: ResultComponent },
+      { path: 'paper', component: PaperComponent },
     ]
   },
   { path: 'email-alert', component: EmailAlertComponent },
