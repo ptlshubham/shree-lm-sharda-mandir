@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { HomeService } from '../../services/home.services';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-alumni',
@@ -22,6 +23,8 @@ export class AlumniComponent {
   constructor(
     public formBuilder: UntypedFormBuilder,
     private homeService: HomeService,
+    private toastrMessage: ToastrService,
+
 
   ) {
     this.getAllInstituteDetails();
@@ -57,7 +60,7 @@ export class AlumniComponent {
     }
     this.homeService.saveAlumniDetail(this.alumniModel).subscribe((res: any) => {
       if (res == 'success') {
-        // this.toastrMessage.success('Alumni data added Successfully.', 'Success', { timeOut: 3000, });
+        this.toastrMessage.success('Alumni data added Successfully.', 'Success', { timeOut: 3000, });
         this.submitted = false;
         this.alumniModel = {};
         this.validationForm.markAsUntouched();

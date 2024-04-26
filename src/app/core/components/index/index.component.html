@@ -9,31 +9,30 @@
   </ngb-carousel>
 </section>
 
-<div class="container">
-  <div class="row mt-0 mb-4 align-items-center">
-    <div class="col-lg-7 col-md-7">
-      <div class="title-heading me-lg-4">
-        <p class="para-desc text-muted"><span class="text-primary">Welcome to</span></p>
-        <h1 class="heading mb-3">Shree Laxmichand Mithalal <span class="text-primary">Sharda Mandir</span> </h1>
-        <p class="para-desc text-muted">Launch your campaign and benefit from our expertise on designing and managing
-          conversion centered bootstrap v5 html page.</p>
+<div class="container z-index-1">
+  <div class="row align-items-center mb-5">
+    <div class="col-lg-6 col-md-6">
+      <div class="section-title">
+        <div class="title-heading">
+          <p class="para-desc text-muted"><span class="text-primary">Welcome to</span></p>
+          <h1 class="heading mb-3">Shree <span class="text-primary">Sharda Kelavani</span> Mandal</h1>
+          <p class="para-desc text-muted">Launch your campaign and benefit from our expertise on designing and managing
+            conversion centered bootstrap v5 html page.</p>
 
-        <div class="mt-4">
-          <a routerLink="/about-us" class="btn btn-primary mt-2 me-2">View More <i-feather name="chevron-right"
-              class="fea icon-sm"></i-feather>
-          </a>
+          <div class="mt-4">
+            <a routerLink="/about-us" class="btn btn-primary mt-2 me-2">View More <i-feather name="chevron-right"
+                class="fea icon-sm"></i-feather>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <!--end col-->
+    </div><!--end col-->
 
-    <div class="col-lg-5 col-md-5 mt-4 pt-2 mt-sm-0 pt-sm-0">
-      <img src="assets/images/school.jpg" alt="">
-    </div>
-    <!--end col-->
-  </div>
-  <!--end row-->
-</div>
+    <div class="col-lg-6 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+      <img src="assets/images/school.jpg" class="img-fluid" alt="">
+    </div><!--end col-->
+  </div><!--end row-->
+</div><!--end container-->
 <section class="section bg-light">
   <div class="container">
     <div class="row justify-content-center">
@@ -47,71 +46,65 @@
       <!--end col-->
     </div>
     <!--end row-->
-
     <div class="row">
-      <div class="col-lg-3 col-md-4 col-12 mt-4 pt-2">
-        <div class="card features feature-primary explore-feature border-0 rounded text-center">
-          <div class="card-body py-5">
-            <div class="position-relative">
-              <img src="assets/images/icon/preschool.png" class="img-fluid avatar avatar-ex-large rounded-circle shadow"
-                alt="preschool">
+      <div class="col-12 mt-4 pt-2">
+        <owl-carousel-o id="customer-testi" [options]="customOptions">
+          <ng-template carouselSlide>
+            <div class="card customer-testi features feature-primary explore-feature text-center border rounded mx-2">
+              <div class="card-body" (click)="openInstituteById('Pre-School')">
+                <img src="assets/images/icon/preschool.png"
+                  class="img-fluid avatar avatar-ex-large rounded-circle shadow mx-auto" alt="">
+                <h5><a href="javascript:void(0)" class="title text-dark">Pre
+                    School</a></h5>
+                <h6 class="text-primary">Shree Manhar Shishu Vihar (Balshala)</h6>
+              </div>
             </div>
-            <div class="content mt-3">
-              <h5><a href="javascript:void(0)" class="title text-dark">Pre-School</a></h5>
-              <a href="javascript:void(0)" class="text-muted small">Learn More</a>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="card customer-testi features feature-primary explore-feature text-center border rounded mx-2">
+              <div class="card-body" (click)="openInstituteById('Primary')">
+                <img src="assets/images/icon/primary.png"
+                  class="img-fluid avatar avatar-ex-large rounded-circle shadow mx-auto" alt="">
+                <h5><a href="javascript:void(0)" class="title text-dark">Primary
+                    School</a></h5>
+                <h6 class="text-primary">Shree Ambalal Chotalal Sharda Mandir</h6>
+              </div>
             </div>
-          </div>
-        </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="card customer-testi features feature-primary explore-feature text-center border rounded mx-2">
+              <div class="card-body" (click)="openInstituteById('Secondary')">
+                <img src="assets/images/icon/secondary.png"
+                  class="img-fluid avatar avatar-ex-large rounded-circle shadow mx-auto" alt="">
+                <h5><a href="javascript:void(0)" class="title text-dark">Secondary School</a></h5>
+                <h6 class="text-primary">Shree Laxmichand Mithalal Sharda Mandir</h6>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="card customer-testi features feature-primary explore-feature text-center border rounded mx-2">
+              <div class="card-body" (click)="openInstituteById('Higher-Secondary')">
+                <img src="assets/images/icon/highschool.png"
+                  class="img-fluid avatar avatar-ex-large rounded-circle shadow mx-auto" alt="">
+                <h5><a href="javascript:void(0)" class="title text-dark">Higher Secondary School</a></h5>
+                <h6 class="text-primary">Mrs. Shantaben Dheerajlal Bhogilal Shah</h6>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide>
+            <div class="card customer-testi features feature-primary explore-feature text-center border rounded mx-2">
+              <div class="card-body" (click)="openInstituteById('English')">
+                <img src="assets/images/icon/primary.png"
+                  class="img-fluid avatar avatar-ex-large rounded-circle shadow mx-auto" alt="">
+                <h5><a href="javascript:void(0)" class="title text-dark">Primary
+                    School</a></h5>
+                <h6 class="text-primary">Shree Sharda English Medium Primary School</h6>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
       </div>
-      <div class="col-lg-3 col-md-4 col-12 mt-4 pt-2">
-        <div class="card features feature-primary explore-feature border-0 rounded text-center">
-          <div class="card-body py-5">
-            <div class="position-relative">
-              <img src="assets/images/icon/primary.png" class="img-fluid avatar avatar-ex-large rounded-circle shadow"
-                alt="primary">
-            </div>
-            <div class="content mt-3">
-              <h5><a href="javascript:void(0)" class="title text-dark">Primary School</a></h5>
-              <a href="javascript:void(0)" class="text-muted small">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-12 mt-4 pt-2">
-        <div class="card features feature-primary explore-feature border-0 rounded text-center">
-          <div class="card-body py-5">
-            <div class="position-relative">
-              <img src="assets/images/icon/secondary.png" class="img-fluid avatar avatar-ex-large rounded-circle shadow"
-                alt="secondary">
-            </div>
-            <div class="content mt-3">
-              <h5><a href="javascript:void(0)" class="title text-dark">Secondary School</a></h5>
-              <a href="javascript:void(0)" class="text-muted small">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-12 mt-4 pt-2">
-        <div class="card features feature-primary explore-feature border-0 rounded text-center">
-          <div class="card-body py-5">
-            <div class="position-relative">
-              <img src="assets/images/icon/highschool.png"
-                class="img-fluid avatar avatar-ex-large rounded-circle shadow" alt="secondary">
-            </div>
-            <div class="content mt-3">
-              <h5><a href="javascript:void(0)" class="title text-dark">Higher Secondary School</a></h5>
-              <a href="javascript:void(0)" class="text-muted small">Learn More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <div class="text-center mt-4 pt-2">
-          <a routerLink="/academic" class="btn btn-primary">View More
-            <i-feather name="chevron-right" class="fea icon-sm"></i-feather>
-          </a>
-        </div>
-      </div>
+      <!--end col-->
     </div>
   </div>
 </section>
@@ -134,7 +127,7 @@
       <div class="col-md-3 col-6 mt-4 pt-2">
         <div class="counter-box text-center">
           <img src="assets/images/schools-logo/clock.png" class="avatar avatar-small" alt="">
-          <h2 class="mb-0 mt-4"><span class="counter-value"  [countUp]="62"></span>+</h2>
+          <h2 class="mb-0 mt-4"><span class="counter-value" [countUp]="62"></span>+</h2>
           <h6 class="counter-head text-muted">Years of Education</h6>
         </div>
         <!--end counter box-->
@@ -143,7 +136,7 @@
       <div class="col-md-3 col-6 mt-4 pt-2">
         <div class="counter-box text-center">
           <img src="assets/images/schools-logo/award.png" class="avatar avatar-small" alt="">
-          <h2 class="mb-0 mt-4"><span class="counter-value"  [countUp]="15"></span>+</h2>
+          <h2 class="mb-0 mt-4"><span class="counter-value" [countUp]="15"></span>+</h2>
           <h6 class="counter-head text-muted">Awards</h6>
         </div>
         <!--end counter box-->

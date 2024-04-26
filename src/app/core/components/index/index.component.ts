@@ -15,7 +15,7 @@ import { HomeService } from '../../services/home.services';
 export class IndexComponent implements OnInit {
 
   // Set Topbar Option
-    sliderTopbar = false;
+  sliderTopbar = false;
   Menuoption = 'center';
   Settingicon = true;
 
@@ -23,11 +23,11 @@ export class IndexComponent implements OnInit {
    * Partners slider
    */
   customOptions: OwlOptions = {
-    // loop: true,
+    loop: true,
     mouseDrag: true,
-    touchDrag: false,
-    pullDrag: false,
-    // autoplay: true,
+    touchDrag: true,
+    pullDrag: true,
+    autoplay: true,
     navSpeed: 700,
     navText: ['', ''],
     responsive: {
@@ -38,10 +38,10 @@ export class IndexComponent implements OnInit {
         items: 2
       },
       740: {
-        items: 3
+        items: 4
       },
       940: {
-        items: 3
+        items: 4
       }
     },
     nav: false
@@ -59,6 +59,12 @@ export class IndexComponent implements OnInit {
   imagesData: any = [];
   sliderImages: any = [];
 
+  acUrl = 'www.ac.shreeshardakelavanimandal.ac.in';
+  lmUrl = 'www.lm.shreeshardakelavanimandal.ac.in';
+  preUrl = 'www.pre.shreeshardakelavanimandal.ac.in';
+  higherUrl = 'www.higher.shreeshardakelavanimandal.ac.in';
+  englishUrl = 'www.english.shreeshardakedavanimandal.ac.in';
+
   constructor(
     private homeService: HomeService
   ) { }
@@ -69,7 +75,7 @@ export class IndexComponent implements OnInit {
   }
   getNewsDetails() {
     this.homeService.getNewsOnlyForCESURL(localStorage.getItem('InstituteId')).subscribe((res: any = []) => {
-      this.newsData = res.slice(0,3);
+      this.newsData = res.slice(0, 3);
     })
   }
   getImagesDataById() {
@@ -81,6 +87,41 @@ export class IndexComponent implements OnInit {
           this.sliderImages.push(element);
         }
       });
+    })
+  }
+  openInstituteById(id: any) {
+    localStorage.clear();
+    if (id == 'Pre-School') {
+      this.getInstituteDetails(this.preUrl);
+      localStorage.setItem('Type', 'Pre-School');
+    }
+    else if (id == 'Primary') {
+      this.getInstituteDetails(this.acUrl);
+      localStorage.setItem('Type', 'AC');
+    }
+    else if (id == 'Secondary') {
+      debugger
+      this.getInstituteDetails(this.lmUrl);
+      localStorage.setItem('Type', 'LM');
+    }
+    else if (id == 'Higher-Secondary') {
+      debugger
+      this.getInstituteDetails(this.higherUrl);
+      localStorage.setItem('Type', 'Higher');
+    }
+    else if (id == 'English') {
+      debugger
+      this.getInstituteDetails(this.englishUrl);
+      localStorage.setItem('Type', 'English');
+    }
+  }
+  getInstituteDetails(id: any) {
+    this.homeService.getInstituteDetailsById(id).subscribe((res: any) => {
+      debugger
+      localStorage.setItem('InstituteId', res[0].id);
+      localStorage.setItem('InstituteName', res[0].name);
+      localStorage.setItem('InstituteURL', res[0].url);
+      location.reload();
     })
   }
 

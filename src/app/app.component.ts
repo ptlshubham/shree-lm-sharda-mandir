@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { HomeService } from './core/services/home.services';
 
@@ -7,20 +7,19 @@ import { HomeService } from './core/services/home.services';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Shree Sharda Kelavani Mandal';
-  staticURL: any = 'www.lm.shreeshardakedavanimandal.ac.in';
+  shardaUrl = 'www.shreeshardakelavanimandal.ac.in';
+
   // staticURL: any = 'www.sanppgi.ac.in';
 
   constructor(
     private router: Router,
     private homeService: HomeService
   ) {
-    this.getInstituteDetails();
-
     /**
-     * Unicons icon refreshed on route change.
-     */
+         * Unicons icon refreshed on route change.
+         */
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         // window['Unicons']();
@@ -32,12 +31,19 @@ export class AppComponent {
       window.scrollTo(0, 0)
     });
   }
-  getInstituteDetails() {
-    this.homeService.getInstituteDetailsById(this.staticURL).subscribe((res: any) => {
+  ngOnInit(): void {
+    if (localStorage.getItem('InstituteName') == null || localStorage.getItem('InstituteName') == undefined) {
       debugger
+      localStorage.setItem('Type', 'Main');
+      this.getInstituteDetails(this.shardaUrl);
+    }
+  }
+  getInstituteDetails(id: any) {
+    this.homeService.getInstituteDetailsById(id).subscribe((res: any) => {
       localStorage.setItem('InstituteId', res[0].id);
       localStorage.setItem('InstituteName', res[0].name);
       localStorage.setItem('InstituteURL', res[0].url);
+      location.reload();
     })
   }
 }

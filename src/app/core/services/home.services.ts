@@ -130,4 +130,10 @@ export class HomeService {
     getCommiteeMultiImageById(id: any) {
         return this.http.get(ApiService.getCommitteeMultiImagesByIdURL + id);
     }
+    getQuestionData(id: any) {
+        return this.http.get(ApiService.getQuestionPapersDetailsURL + id);
+    }
+    getStudentList(id: any) {
+        return this.http.get(ApiService.getStudentListDataURL + id);
+    }
 }

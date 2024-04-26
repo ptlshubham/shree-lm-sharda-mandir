@@ -27,11 +27,16 @@ export class HeaderComponent implements OnInit {
 
   public href: string = "";
 
+  // staticURL: any = 'www.shreeshardakelavanimandal.ac.in';
+  instituteURL: any = null;
+  Type: any = null;
 
   constructor(
     private router: Router,
     private modalService: NgbModal,
     private offcanvasService: NgbOffcanvas) {
+    this.instituteURL = localStorage.getItem('InstituteURL');
+    this.Type = localStorage.getItem('Type');
     this.router.events.forEach((event) => {
       if (event instanceof NavigationEnd) {
         this._activateMenuDropdown();
@@ -203,6 +208,10 @@ export class HeaderComponent implements OnInit {
   // Demo Offcanvas
   openright(content: TemplateRef<any>) {
     this.offcanvasService.open(content, { position: 'end' });
+  }
+  openMainSite() {
+    localStorage.clear();
+    location.reload();
   }
 
 }

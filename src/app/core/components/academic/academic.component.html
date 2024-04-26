@@ -68,10 +68,10 @@
                             <div class="col-md-6 col-12 mt-4 pt-2">
                                 <div class="card border-0 work-container work-classic">
                                     <div class="card-body p-0">
-                                        <a routerLink="/portfolio-detail-one"><img src="{{data.image}}"
+                                        <a (click)="openInstituteById(data.type)"><img src="{{data.image}}"
                                                 class="img-fluid rounded work-image" alt=""></a>
                                         <div class="content pt-3">
-                                            <h5 class="mb-0 text-center"><a routerLink="/portfolio-detail-one"
+                                            <h5 class="mb-0 text-center"><a (click)="openInstituteById(data.type)"
                                                     class="text-primary title">{{data.name}}</a>
                                             </h5>
                                             <h6 class="text-muted text-center tag mb-0">{{data.category}}</h6>
@@ -90,10 +90,10 @@
                             <div class="col-md-6 col-12 mt-4 pt-2">
                                 <div class="card border-0 work-container work-classic">
                                     <div class="card-body p-0">
-                                        <a routerLink="/portfolio-detail-one"><img src="{{data.image}}"
+                                        <a (click)="openInstituteById(data.type)"><img src="{{data.image}}"
                                                 class="img-fluid rounded work-image" alt=""></a>
                                         <div class="content pt-3">
-                                            <h5 class="mb-0 text-center"><a routerLink="/portfolio-detail-one"
+                                            <h5 class="mb-0 text-center"><a (click)="openInstituteById(data.type)"
                                                     class="text-primary title">{{data.name}}</a>
                                             </h5>
                                             <h6 class="text-muted text-center tag mb-0">{{data.category}}</h6>

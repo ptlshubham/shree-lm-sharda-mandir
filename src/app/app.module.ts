@@ -59,6 +59,7 @@ import { StaffDetailsComponent } from './core/components/staff-details/staff-det
 import { StudentListComponent } from './core/components/student-list/student-list.component';
 import { ResultComponent } from './core/components/result/result.component';
 import { PaperComponent } from './core/components/paper/paper.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -119,7 +120,8 @@ import { PaperComponent } from './core/components/paper/paper.component';
     NgxMasonryModule,
     LightboxModule,
     SharedModule,
-    SimplebarAngularModule
+    SimplebarAngularModule,
+    ToastrModule.forRoot(),
   ],
   exports: [
     FeatherModule,

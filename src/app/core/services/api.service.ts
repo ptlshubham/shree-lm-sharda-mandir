@@ -89,6 +89,8 @@ export class ApiService {
   //RazorPay APIS
 
   public static fetchPaymentURL: string = ApiService.HOST_URL + '/admin/fetchPayment/';
+  public static getQuestionPapersDetailsURL: string = ApiService.HOST_URL + '/admin/GetQuestionPapersDetails/';
+  public static getStudentListDataURL: string = ApiService.HOST_URL + '/admin/GetStudentListData/';
 
 
 

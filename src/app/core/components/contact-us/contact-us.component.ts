@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { HomeService } from '../../services/home.services';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact-us',
@@ -8,11 +10,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrl: './contact-us.component.css'
 })
 export class ContactUsComponent {
-    sliderTopbar = false;
+  sliderTopbar = false;
   Menuoption = 'center';
   Settingicon = true;
   submitted = false;
-  
+
   validationForm!: FormGroup;
   contactModel: any = {};
 
@@ -21,8 +23,10 @@ export class ContactUsComponent {
   constructor(
     private modalService: NgbModal,
     public formBuilder: UntypedFormBuilder,
-    )
-     { }
+    private homeService: HomeService,
+    private toastrMessage: ToastrService,
+
+  ) { }
 
   ngOnInit(): void {
     this.validationForm = this.formBuilder.group({
@@ -41,15 +45,18 @@ export class ContactUsComponent {
     if (this.validationForm.invalid) {
       return;
     }
-    // else {
-    //   this.contactService.addContact(this.contactModel).then(() => {
-    //     this.toastr.success('Thank you for reaching us.', 'Success!');
-    //     this.validationForm.markAsUntouched();
-    //     this.contactModel = {};
-    //   })
-    //     .catch((error) => this.toastr.error('Please try again.', 'Error!'));
+    else {
+      this.contactModel.institute_id = localStorage.getItem('InstituteId');
+      this.homeService.saveContactUsDetails(this.contactModel).subscribe((res: any) => {
+        if (res == 'success') {
+          this.submitted = false;
+          this.validationForm.markAsUntouched();
+          this.contactModel = {};
+          this.toastrMessage.success('Thank you for valuable feedback.', 'Success', { timeOut: 3000, });
+        }
+      })
 
-    // }
+    }
   }
 
   mapView(content) {

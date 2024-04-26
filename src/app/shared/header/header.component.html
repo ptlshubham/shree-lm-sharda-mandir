@@ -44,9 +44,25 @@
     <!-- Logo container-->
     <div>
       @if(navClass !== 'nav-light'){
-      <a class="logo" routerLink="/index">
+      <a class="logo" routerLink="/index" *ngIf="Type==undefined">
         <img src="assets/images/logo-dark.png" class="l-dark logo-light-mode" height="60" alt="">
         <img src="assets/images/logo-light.png" class="logo-dark-mode" height="60" alt="">
+      </a>
+      <a class="logo" routerLink="/index" *ngIf="Type=='Main'">
+        <img src="assets/images/logo-dark.png" class="l-dark logo-light-mode" height="60" alt="">
+        <img src="assets/images/logo-light.png" class="logo-dark-mode" height="60" alt="">
+      </a>
+      <a class="logo" routerLink="/index" *ngIf="Type=='AC'">
+        <img src="assets/images/sharda-dark.png" class="l-dark logo-light-mode" height="60" alt="">
+        <img src="assets/images/sharda-light.png" class="logo-dark-mode" height="60" alt="">
+      </a>
+      <a class="logo" routerLink="/index" *ngIf="Type=='LM'">
+        <img src="assets/images/lm-dark.png" class="l-dark logo-light-mode" height="60" alt="">
+        <img src="assets/images/lm-light.png" class="logo-dark-mode" height="60" alt="">
+      </a>
+      <a class="logo" routerLink="/index" *ngIf="Type=='English'">
+        <img src="assets/images/english-dark.png" class="l-dark logo-light-mode" height="60" alt="">
+        <img src="assets/images/english-light.png" class="logo-dark-mode" height="60" alt="">
       </a>
       }
       <div class="menu-extras">
@@ -166,13 +182,46 @@
     }
 
     @if(Menuoption == 'center'){
-    <div id="navigation">
+
+    <div id="navigation" *ngIf="instituteURL=='www.shreeshardakelavanimandal.ac.in'">
+      <!-- Navigation Menu-->
+      <ul class="navigation-menu nav-right" [class]="navClass">
+        <li><a routerLink="/" class="nav-link-ref">Home</a></li>
+        <li class="has-submenu">
+          <a (click)="openMainSite()" (click)="onMenuClick($event)">About Us</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a routerLink="/about-us" class="nav-link-ref"> Our History</a> </li>
+            <li><a routerLink="/management" class="nav-link-ref"> Management </a></li>
+          </ul>
+        </li>
+        <li class="has-submenu">
+          <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">Academic</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a routerLink="/academic" class="nav-link-ref">Gujrati Medium </a></li>
+            <li><a routerLink="/academic" class="nav-link-ref">English Medium</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/alumni" class="nav-link-ref">Alumni</a></li>
+        <li><a routerLink="/gallery" class="nav-link-ref">Gallery</a></li>
+        <li><a routerLink="/contact-us" class="nav-link-ref">Contact Us</a></li>
+        <li class="has-submenu">
+          <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">More</a><span class="menu-arrow"></span>
+          <ul class="submenu">
+            <li><a routerLink="/facilities" class="nav-link-ref">Facilities</a> </li>
+            <li><a routerLink="/blog" class="nav-link-ref">Blogs</a></li>
+            <li><a routerLink="/news" class="nav-link-ref">News</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="navigation" *ngIf="instituteURL!='www.shreeshardakelavanimandal.ac.in'">
       <!-- Navigation Menu-->
       <ul class="navigation-menu nav-right" [class]="navClass">
         <li class="has-submenu">
           <a routerLink="/index" (click)="onMenuClick($event)">Home</a><span class="menu-arrow"></span>
           <ul class="submenu">
-            <li><a href="www.shreeshardakelavanimandal.ac.in" target="_blank" class="nav-link-ref"> Sharada Home</a> </li>
+            <li><a (click)="openMainSite()" target="_blank" class="nav-link-ref">Sharada Home</a>
+            </li>
           </ul>
         </li>
         <li class="has-submenu">
@@ -192,7 +241,8 @@
         <li><a routerLink="/gallery" class="nav-link-ref">Gallery</a></li>
         <li><a routerLink="/contact-us" class="nav-link-ref">Contact Us</a></li>
         <li class="has-submenu">
-          <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">Student Corner</a><span class="menu-arrow"></span>
+          <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">Student Corner</a><span
+            class="menu-arrow"></span>
           <ul class="submenu">
             <li><a routerLink="/links/forms" class="nav-link-ref">Forms </a></li>
             <li><a routerLink="/links/syllabus" class="nav-link-ref">Syllabus</a></li>
@@ -207,9 +257,7 @@
           <a routerLink="javascript:void(0)" (click)="onMenuClick($event)">More</a><span class="menu-arrow"></span>
           <ul class="submenu">
             <li><a routerLink="/facilities" class="nav-link-ref">Facilities</a> </li>
-            <li><a routerLink="/blog" class="nav-link-ref">Blogs</a></li>
             <li><a routerLink="/news" class="nav-link-ref">News</a></li>
-            <li><a href="www.shreeshardakelavanimandal.ac.in" target="_blank" class="nav-link-ref">Alumni</a></li>
             <li><a routerLink="/commitees" class="nav-link-ref">Commitees</a></li>
             <li><a routerLink="/staff-details" class="nav-link-ref">Staff-Details</a></li>
             <li><a routerLink="/students-list" class="nav-link-ref">Student-List</a></li>

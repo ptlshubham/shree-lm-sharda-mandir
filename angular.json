@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "landrick-angular": {
+    "shree-sharda-kelavani-mandal": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/landrick-angular",
+            "outputPath": "dist/shree-sharda-kelavani-mandal",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -98,18 +98,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "buildTarget": "landrick-angular:build"
+            "buildTarget": "shree-sharda-kelavani-mandal:build"
           },
           "configurations": {
             "production": {
-              "buildTarget": "landrick-angular:build:production"
+              "buildTarget": "shree-sharda-kelavani-mandal:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "landrick-angular:build"
+            "buildTarget": "shree-sharda-kelavani-mandal:build"
           }
         },
         "test": {
@@ -138,11 +138,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "landrick-angular:serve"
+            "devServerTarget": "shree-sharda-kelavani-mandal:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "landrick-angular:serve:production"
+              "devServerTarget": "shree-sharda-kelavani-mandal:serve:production"
             }
           }
         }
